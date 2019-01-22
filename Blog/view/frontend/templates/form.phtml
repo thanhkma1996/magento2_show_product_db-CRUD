@@ -1,0 +1,45 @@
+<h2>Nhập thông tin của bạn</h2>
+<form action="<?php echo $block->getUrl('blog/index/add'); ?>" method="post" id="form-validate">
+<table style="width:400px;">
+    Name : <input type="text" id="name" name="name"><br/>
+    Url key : <input type="number" name="urlkey"><br/>
+    Status: <input type="checkbox" id="status" name="status" value="1"/><br>
+    content :<textarea name="content"></textarea>
+    create at : <input type="date" name="create_at"><br/>
+    update at: <input type="date" name="update_at"><br/>
+    <input type="submit" value="Submit" name="submmit">
+</table>
+</form>
+
+<h2> Hiển thị thông tin đã nhập </h2>
+<?php  
+        $show = $block->getshow();
+?>
+<form action="" method="post" id="form-validate">
+<table style="width:400px; border:1px solid red;">
+    <tr>
+        <th>STT</th>
+        <th>Name</th>
+        <th>Url key</th>
+        <th> Status </th>
+        <th> Image </th>
+        <th> Content </th>
+        <!-- <th> Create at </th>
+        <th> Update at </th> -->
+    </tr>
+
+    <?php 
+            foreach($show as $display){
+    ?>
+    </tr>
+        <td><?php echo $display->getPostId() ?></td>
+        <td><?php echo $display->getName() ?></td>
+        <td><?php echo $display->getUrlKey() ?></td>
+        <td><?php echo $display->getStatus() ?></td>
+        <td><?php echo $display->getImage() ?></td>
+        <td><?php echo $display->getContent() ?></td>
+    </tr>
+    <?php  } ?>
+
+</table>
+</form>
